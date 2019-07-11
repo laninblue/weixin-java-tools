@@ -1,11 +1,12 @@
 package me.chanjar.weixin.mp.bean.message;
 
+import java.io.Serializable;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
-import me.chanjar.weixin.common.util.ToStringUtils;
+import lombok.Data;
 import me.chanjar.weixin.common.util.xml.XStreamCDataConverter;
-
-import java.io.Serializable;
+import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 /**
  * <pre>
@@ -15,7 +16,8 @@ import java.io.Serializable;
  * @author Binary Wang
  */
 @XStreamAlias("HardWare")
-public class HardWare implements Serializable{
+@Data
+public class HardWare implements Serializable {
   private static final long serialVersionUID = -1295785297354896461L;
 
   /**
@@ -33,22 +35,6 @@ public class HardWare implements Serializable{
 
   @Override
   public String toString() {
-    return ToStringUtils.toSimpleString(this);
-  }
-
-  public String getMessageView() {
-    return messageView;
-  }
-
-  public void setMessageView(String messageView) {
-    this.messageView = messageView;
-  }
-
-  public String getMessageAction() {
-    return messageAction;
-  }
-
-  public void setMessageAction(String messageAction) {
-    this.messageAction = messageAction;
+    return WxMpGsonBuilder.create().toJson(this);
   }
 }

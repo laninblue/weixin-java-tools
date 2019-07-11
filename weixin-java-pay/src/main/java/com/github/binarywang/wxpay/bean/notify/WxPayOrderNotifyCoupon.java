@@ -1,15 +1,20 @@
 package com.github.binarywang.wxpay.bean.notify;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import me.chanjar.weixin.common.util.json.WxGsonBuilder;
+
 /**
- * 支付异步通知代金券详细
+ * 支付异步通知代金券详细.
+ *
+ * @author aimilin
  */
+@Data
+@NoArgsConstructor
 public class WxPayOrderNotifyCoupon implements Serializable {
   private static final long serialVersionUID = -4165343733538156097L;
 
@@ -17,30 +22,12 @@ public class WxPayOrderNotifyCoupon implements Serializable {
   private String couponType;
   private Integer couponFee;
 
-  public String getCouponId() {
-    return couponId;
-  }
-
-  public void setCouponId(String couponId) {
-    this.couponId = couponId;
-  }
-
-  public String getCouponType() {
-    return couponType;
-  }
-
-  public void setCouponType(String couponType) {
-    this.couponType = couponType;
-  }
-
-  public Integer getCouponFee() {
-    return couponFee;
-  }
-
-  public void setCouponFee(Integer couponFee) {
-    this.couponFee = couponFee;
-  }
-
+  /**
+   * To map map.
+   *
+   * @param index the index
+   * @return the map
+   */
   public Map<String, String> toMap(int index) {
     Map<String, String> map = new HashMap<>();
     map.put("coupon_id_" + index, this.getCouponId());
@@ -51,6 +38,6 @@ public class WxPayOrderNotifyCoupon implements Serializable {
 
   @Override
   public String toString() {
-    return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+    return WxGsonBuilder.create().toJson(this);
   }
 }

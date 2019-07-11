@@ -1,21 +1,30 @@
 package com.github.binarywang.wxpay.bean.coupon;
 
-import com.github.binarywang.wxpay.bean.result.WxPayBaseResult;
+import com.github.binarywang.wxpay.bean.result.BaseWxPayResult;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * <pre>
- * 查询代金券批次响应结果类
+ * 查询代金券批次响应结果类.
  * Created by Binary Wang on 2017-7-15.
  * </pre>
  *
  * @author <a href="https://github.com/binarywang">Binary Wang</a>
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @XStreamAlias("xml")
-public class WxPayCouponStockQueryResult extends WxPayBaseResult {
+public class WxPayCouponStockQueryResult extends BaseWxPayResult {
+  private static final long serialVersionUID = 4644274730788451926L;
   /**
    * <pre>
-   * 字段名：设备号
+   * 字段名：设备号.
    * 变量名：device_info
    * 是否必填：否
    * 示例值：123456sb
@@ -28,7 +37,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券批次ID
+   * 字段名：代金券批次ID.
    * 变量名：coupon_stock_id
    * 是否必填：是
    * 示例值：1757
@@ -41,7 +50,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券名称
+   * 字段名：代金券名称.
    * 变量名：coupon_name
    * 是否必填：否
    * 示例值：测试代金券
@@ -54,7 +63,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券面额
+   * 字段名：代金券面额.
    * 变量名：coupon_value
    * 是否必填：是
    * 示例值：5
@@ -67,7 +76,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券使用最低限额
+   * 字段名：代金券使用最低限额.
    * 变量名：coupon_mininumn
    * 是否必填：否
    * 示例值：10
@@ -76,11 +85,11 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
    * </pre>
    */
   @XStreamAlias("coupon_mininumn")
-  private Integer couponMininumn;
+  private Integer couponMinimum;
 
   /**
    * <pre>
-   * 字段名：代金券批次状态
+   * 字段名：代金券批次状态.
    * 变量名：coupon_stock_status
    * 是否必填：是
    * 示例值：4
@@ -93,7 +102,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券数量
+   * 字段名：代金券数量.
    * 变量名：coupon_total
    * 是否必填：是
    * 示例值：100
@@ -106,7 +115,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券最大领取数量
+   * 字段名：代金券最大领取数量.
    * 变量名：max_quota
    * 是否必填：否
    * 示例值：1
@@ -119,7 +128,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券已经发送的数量
+   * 字段名：代金券已经发送的数量.
    * 变量名：is_send_num
    * 是否必填：否
    * 示例值：0
@@ -132,7 +141,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：生效开始时间
+   * 字段名：生效开始时间.
    * 变量名：begin_time
    * 是否必填：是
    * 示例值：1943787483
@@ -145,7 +154,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：生效结束时间
+   * 字段名：生效结束时间.
    * 变量名：end_time
    * 是否必填：是
    * 示例值：1943787490
@@ -158,7 +167,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：创建时间
+   * 字段名：创建时间.
    * 变量名：create_time
    * 是否必填：是
    * 示例值：1943787420
@@ -171,7 +180,7 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
 
   /**
    * <pre>
-   * 字段名：代金券预算额度
+   * 字段名：代金券预算额度.
    * 变量名：coupon_budget
    * 是否必填：否
    * 示例值：500
@@ -182,107 +191,4 @@ public class WxPayCouponStockQueryResult extends WxPayBaseResult {
   @XStreamAlias("coupon_budget")
   private Integer couponBudget;
 
-  public String getDeviceInfo() {
-    return this.deviceInfo;
-  }
-
-  public void setDeviceInfo(String deviceInfo) {
-    this.deviceInfo = deviceInfo;
-  }
-
-  public String getCouponStockId() {
-    return this.couponStockId;
-  }
-
-  public void setCouponStockId(String couponStockId) {
-    this.couponStockId = couponStockId;
-  }
-
-  public String getCouponName() {
-    return this.couponName;
-  }
-
-  public void setCouponName(String couponName) {
-    this.couponName = couponName;
-  }
-
-  public Integer getCouponValue() {
-    return this.couponValue;
-  }
-
-  public void setCouponValue(Integer couponValue) {
-    this.couponValue = couponValue;
-  }
-
-  public Integer getCouponMininumn() {
-    return this.couponMininumn;
-  }
-
-  public void setCouponMininumn(Integer couponMininumn) {
-    this.couponMininumn = couponMininumn;
-  }
-
-  public Integer getCouponStockStatus() {
-    return this.couponStockStatus;
-  }
-
-  public void setCouponStockStatus(Integer couponStockStatus) {
-    this.couponStockStatus = couponStockStatus;
-  }
-
-  public Integer getCouponTotal() {
-    return this.couponTotal;
-  }
-
-  public void setCouponTotal(Integer couponTotal) {
-    this.couponTotal = couponTotal;
-  }
-
-  public Integer getMaxQuota() {
-    return this.maxQuota;
-  }
-
-  public void setMaxQuota(Integer maxQuota) {
-    this.maxQuota = maxQuota;
-  }
-
-  public Integer getIsSendNum() {
-    return this.isSendNum;
-  }
-
-  public void setIsSendNum(Integer isSendNum) {
-    this.isSendNum = isSendNum;
-  }
-
-  public String getBeginTime() {
-    return this.beginTime;
-  }
-
-  public void setBeginTime(String beginTime) {
-    this.beginTime = beginTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getCouponBudget() {
-    return this.couponBudget;
-  }
-
-  public void setCouponBudget(Integer couponBudget) {
-    this.couponBudget = couponBudget;
-  }
 }

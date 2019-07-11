@@ -1,9 +1,9 @@
 package me.chanjar.weixin.mp.bean.membercard;
 
-import me.chanjar.weixin.common.util.ToStringUtils;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
-
 import java.io.Serializable;
+
+import lombok.Data;
+import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 /**
  * <pre>
@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @author YuJian(mgcnrx11@gmail.com)
  * @version 2017/7/15
  */
+@Data
 public class WxMpMemberCardUpdateResult implements Serializable {
 
   private static final long serialVersionUID = 9084886191442098311L;
@@ -26,54 +27,14 @@ public class WxMpMemberCardUpdateResult implements Serializable {
 
   private Integer resultBonus;
 
-  private Integer resultBalance;
-
-  public String getErrorCode() {
-    return errorCode;
-  }
-
-  public void setErrorCode(String errorCode) {
-    this.errorCode = errorCode;
-  }
-
-  public String getErrorMsg() {
-    return errorMsg;
-  }
-
-  public void setErrorMsg(String errorMsg) {
-    this.errorMsg = errorMsg;
-  }
-
-  public String getOpenId() {
-    return openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public Integer getResultBonus() {
-    return resultBonus;
-  }
-
-  public void setResultBonus(Integer resultBonus) {
-    this.resultBonus = resultBonus;
-  }
-
-  public Integer getResultBalance() {
-    return resultBalance;
-  }
-
-  public void setResultBalance(Integer resultBalance) {
-    this.resultBalance = resultBalance;
-  }
+  private Double resultBalance;
 
   @Override
   public String toString() {
-    return ToStringUtils.toSimpleString(this);
+    return WxMpGsonBuilder.create().toJson(this);
   }
 
   public static WxMpMemberCardUpdateResult fromJson(String json) {
-    return WxMpGsonBuilder.INSTANCE.create().fromJson(json, WxMpMemberCardUpdateResult.class);
+    return WxMpGsonBuilder.create().fromJson(json, WxMpMemberCardUpdateResult.class);
   }
 }

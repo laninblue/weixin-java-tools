@@ -1,14 +1,16 @@
 package me.chanjar.weixin.mp.bean.kefu.result;
 
-import com.google.gson.annotations.SerializedName;
-import me.chanjar.weixin.common.util.ToStringUtils;
-import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
-
 import java.io.Serializable;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.SerializedName;
+import lombok.Data;
+import me.chanjar.weixin.mp.util.json.WxMpGsonBuilder;
 
 /**
  * @author Binary Wang
  */
+@Data
 public class WxMpKfSessionGetResult implements Serializable {
   private static final long serialVersionUID = 8474846575200033152L;
 
@@ -25,28 +27,12 @@ public class WxMpKfSessionGetResult implements Serializable {
   private long createTime;
 
   public static WxMpKfSessionGetResult fromJson(String json) {
-    return WxMpGsonBuilder.INSTANCE.create().fromJson(json, WxMpKfSessionGetResult.class);
+    return WxMpGsonBuilder.create().fromJson(json, WxMpKfSessionGetResult.class);
   }
 
   @Override
   public String toString() {
-    return ToStringUtils.toSimpleString(this);
-  }
-
-  public String getKfAccount() {
-    return this.kfAccount;
-  }
-
-  public void setKfAccount(String kfAccount) {
-    this.kfAccount = kfAccount;
-  }
-
-  public long getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(long createTime) {
-    this.createTime = createTime;
+    return WxMpGsonBuilder.create().toJson(this);
   }
 
 }
